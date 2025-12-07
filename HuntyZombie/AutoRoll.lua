@@ -53,7 +53,7 @@ local function weaponroll()
             break
         end
     end
-
+    local weapon = cwlabel.Text
     if weapon == "BLINDFOLD" then
         _G.rolling = false
     end
