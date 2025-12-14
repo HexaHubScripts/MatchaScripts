@@ -3,6 +3,7 @@ _G.rolling = true
 local wtime = 0.8
 local gui = game.Players.LocalPlayer.PlayerGui
 local cwlabel = gui.GUI.Spin_Weapons.Header
+local weapon = cwlabel.Text
 
 -- Put any Legendary+ weapons you want to auto skip in this table in ALL CAPS
 local whitelisted = {
@@ -30,7 +31,6 @@ local function weaponroll()
   
     local confirmpos = confirm.AbsolutePosition
     local spinpos = gui.GUI.Spin_Weapons.SpinButtons.Holder.Normal.Txt.AbsolutePosition
-    local weapon = cwlabel.Text
     
     mousemoveabs(spinpos.X + 100, spinpos.Y + 25)
     mouse1click()
@@ -56,15 +56,12 @@ local function weaponroll()
             break
         end
     end
-    local weapon = cwlabel.Text
-    if weapon == "BLINDFOLD" then
-        _G.rolling = false
-    end
+    weapon = cwlabel.Text
 end
 
 task.wait(5)
 
-while _G.rolling and isrbxactive() do
+while _G.rolling and isrbxactive() and weapon ~= "BLINDFOLD" do
     weaponroll()
     task.wait(wtime)
 end
