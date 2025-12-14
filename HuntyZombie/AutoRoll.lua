@@ -1,5 +1,7 @@
 _G.rolling = true
 
+setrobloxinput(false)
+
 local wtime = 0.8
 local gui = game.Players.LocalPlayer.PlayerGui
 local cwlabel = gui.GUI.Spin_Weapons.Header
