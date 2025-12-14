@@ -1,5 +1,6 @@
 _G.rolling = true
 
+local wtime = 0.8
 local gui = game.Players.LocalPlayer.PlayerGui
 local cwlabel = gui.GUI.Spin_Weapons.Header
 
@@ -42,6 +43,7 @@ local function weaponroll()
 
     for _, v in ipairs(whitelisted) do
         if weapon == v then
+            wtime = 1.1
             mousemoveabs(confirmpos.X + 100, confirmpos.Y + 25)
             mouse1click()
             task.wait(0.5)
@@ -50,6 +52,7 @@ local function weaponroll()
             mouse1click()
             task.wait(0.1)
             mouse1release()
+            wtime = 0.8
             break
         end
     end
@@ -63,5 +66,5 @@ task.wait(5)
 
 while _G.rolling and isrbxactive() do
     weaponroll()
-    wait(1.1)
+    task.wait(wtime)
 end
