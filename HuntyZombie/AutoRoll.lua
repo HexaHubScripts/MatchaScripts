@@ -61,7 +61,7 @@ end
 
 task.wait(5)
 
-while _G.rolling and isrbxactive() and weapon ~= "BLINDFOLD" do
+while _G.rolling and isrbxactive() and not (weapon == "BLINDFOLD" or weapon == "CANDY CANE" or weapon == "KRAMPUS CLAW") do
     weaponroll()
     task.wait(wtime)
 end
